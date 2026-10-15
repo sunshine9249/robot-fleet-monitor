@@ -1,0 +1,50 @@
+@import "../../styles/base/breakpoint";
+
+.content {
+  padding: 50px 40px 40px;
+  min-width: 425px;
+  max-width: 480px;
+  margin: 0 auto;
+
+  @include uiBreakpoint("xs", "s") {
+    min-width: unset;
+    // width: calc(100vw - 30px);
+    padding: 50px 25px 40px;
+  }
+}
+
+.header {
+  margin: auto;
+  padding-bottom: 20px;
+  z-index: 10;
+  display: flex;
+  vertical-align: middle;
+  flex-flow: column;
+  text-align: center;
+}
+
+.logo {
+  max-width: 100px;
+  margin: 0 auto;
+  img {
+    width: 100%;
+  }
+  @include uiBreakpoint("xs") {
+    max-width: 230px;
+  }
+}
+
+.passwordInput {
+  :global(.euiFieldPassword) {
+    padding-left: 12px;
+  }
+  :global(.euiFormControlLayoutIcons) {
+    display: none;
+  }
+  :global(.euiFormControlLayout--group .euiButtonIcon:not(:focus)) {
+    background-color: var(--surface-subtle);
+  }
+  :global(.euiFormControlLayout--group) {
+    box-shadow: none;
+  }
+}

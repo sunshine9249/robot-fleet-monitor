@@ -1,0 +1,113 @@
+@import "../../styles/base/color";
+
+.map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+.floor {
+  fill: #181b24;
+  stroke: #3a3d4b;
+  stroke-width: 0.12;
+}
+
+.corridor {
+  fill: #0d0e14;
+}
+
+.zone {
+  fill: #1e2230;
+  stroke: #464553;
+  stroke-width: 0.08;
+}
+
+.zoneLabel {
+  font-size: 1.05px;
+  fill: #c8c4d6;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.elevator {
+  fill: #252a38;
+  stroke: #647084;
+  stroke-width: 0.1;
+}
+
+.elevatorLabel {
+  font-size: 0.7px;
+  font-weight: 700;
+  fill: #e2e8f0;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.dock {
+  fill: #252a38;
+}
+
+.dockLabel {
+  font-size: 0.75px;
+  fill: #94a3b8;
+  text-anchor: middle;
+}
+
+.route {
+  fill: none;
+  stroke: $appColorPrimary;
+  stroke-width: 0.28;
+  stroke-dasharray: 0.8 0.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.other {
+  transition: transform 0.25s linear;
+
+  circle {
+    fill: #647084;
+  }
+
+  text {
+    font-size: 0.8px;
+    fill: #94a3b8;
+    text-anchor: middle;
+  }
+}
+
+.robot {
+  transition: transform 0.25s linear;
+}
+
+.halo {
+  opacity: 0.18;
+}
+
+.body {
+  stroke: #fff;
+  stroke-width: 0.18;
+}
+
+.heading {
+  fill: #fff;
+}
+
+.markerHalo {
+  opacity: 0.2;
+}
+
+.markerLabel {
+  font-size: 0.9px;
+  font-weight: 700;
+  fill: #e2e8f0;
+  text-anchor: middle;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robot,
+  .other {
+    transition: none;
+  }
+}

@@ -1,0 +1,173 @@
+@import "../../../styles/base/color";
+@import "../../../styles/base/typography";
+
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  padding-bottom: 12px;
+}
+
+.roleList {
+  li + li {
+    margin-top: 6px;
+  }
+}
+
+.roleItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  background: var(--surface-card);
+  border: 1px solid $appPanelBorder;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $appColorPrimary;
+  }
+
+  &.active {
+    border-color: $appColorPrimary;
+    background: $appColorPrimaryBackground;
+  }
+}
+
+.roleName {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: $uiFontWeightSemiBold;
+  color: $appTextBlack;
+}
+
+.roleMeta {
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.detail {
+  min-width: 0;
+}
+
+.detailHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 12px;
+  flex: 1;
+
+  :global(.euiFormRow + .euiFormRow) {
+    margin-top: 0;
+  }
+}
+
+.detailTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: $uiFontWeightBold;
+  color: $appTextBlack;
+}
+
+.detailDescription {
+  margin-top: 2px;
+  font-size: 13px;
+  color: $appTextColorGray;
+}
+
+.detailActions {
+  display: flex;
+  gap: 8px;
+}
+
+.group {
+  margin-top: 20px;
+}
+
+.groupTitle {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: $uiFontWeightBold;
+  color: $appTextColorGray;
+}
+
+.matrix {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid $appPanelBorder;
+  border-radius: 8px;
+
+  tr + tr {
+    border-top: 1px solid $appPanelBorder;
+  }
+
+  th {
+    width: 220px;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    background: var(--surface-subtle);
+    font-weight: $uiFontWeightSemiBold;
+  }
+
+  td {
+    padding: 10px 14px;
+  }
+
+  .off td {
+    opacity: 0.7;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.none {
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.pageOn,
+.pageOff,
+.resourceOn,
+.resourceOff {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.pageOn {
+  color: $appTextBlack;
+}
+
+.pageOff {
+  color: $appTextColorGray;
+  font-weight: $uiFontWeightMedium;
+}
+
+.resourceOn {
+  color: $appTextBlack;
+
+  svg {
+    color: $appColorSuccess;
+  }
+}
+
+.resourceOff {
+  color: $appTextColorPlaceholder;
+}

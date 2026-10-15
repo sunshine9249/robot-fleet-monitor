@@ -1,0 +1,7 @@
+@import "../../../styles/base/color";
+
+.invalid {
+  :global(.euiFormHelpText) {
+    color: $appColorDanger;
+  }
+}

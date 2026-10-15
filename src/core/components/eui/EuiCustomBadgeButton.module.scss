@@ -1,0 +1,11 @@
+@import "../../../styles/base/color";
+
+// 공통 배지(EuiCustomBadge) 위에 "눌리는 배지"에만 필요한 것만 얹는다.
+.badge {
+  border: 1px solid $appNeutralLight;
+  cursor: pointer;
+}
+
+.small.small {
+  font-size: 11px;
+}

@@ -1,0 +1,15 @@
+.viewOption {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 4px;
+  flex-wrap: wrap;
+  :global {
+    .euiRadioGroup__item {
+      margin-top: 0px;
+    }
+    .euiRadio .euiRadio__input ~ .euiRadio__label {
+      padding-left: 20px;
+    }
+  }
+}

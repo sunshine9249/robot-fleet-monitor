@@ -1,0 +1,53 @@
+@import "../../styles/base/color";
+@import "../../styles/base/typography";
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.label {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  background: rgba(24, 27, 36, 0.95);
+  border: 1px solid $appPanelBorder;
+  border-radius: $appRadiusMD;
+  font-size: 12px;
+  font-weight: $uiFontWeightSemiBold;
+  color: $appTextBlack;
+  white-space: nowrap;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: $appShadowS;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: $appColorPrimary;
+    box-shadow: $appShadowM;
+  }
+
+  &.selected {
+    z-index: 2;
+    border-color: $appColorPrimary;
+    box-shadow: 0 0 0 3px rgba($appColorPrimary, 0.18);
+  }
+}
+
+.name {
+  color: $appTextBlack;
+}
+
+.battery {
+  font-size: 11px;
+  font-weight: $uiFontWeightMedium;
+  color: $appTextColorGray;
+  font-variant-numeric: tabular-nums;
+}

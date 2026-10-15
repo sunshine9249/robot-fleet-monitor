@@ -1,0 +1,19 @@
+@import "../../../styles/base/color";
+
+.required {
+  label:after {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-left: 7px;
+    transform: translateY(-3px);
+    background-color: $appColorDanger;
+  }
+
+  label.euiRadio__label:after,
+  label.euiFormControlLayout__append:after {
+    display: none;
+  }
+}

@@ -1,0 +1,27 @@
+@import "./base/color";
+@import "./base/typography";
+@import "./base/z_index";
+@import "./base/border";
+
+$appFloatHorizontalSpace: 36px;
+$appFloatVerticalSpace: 24px;
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weightMediumP {
+  font-weight: $uiFontWeightMedium;
+}
+
+.weightSemiBoldP {
+  font-weight: $uiFontWeightSemiBold;
+}
+
+.absoluteFull {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}

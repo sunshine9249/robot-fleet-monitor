@@ -1,0 +1,23 @@
+@import "../../styles/base/color";
+
+.divider {
+  font-size: 0.875rem;
+  color: $appIconColorGray;
+  margin-inline: 8px;
+  position: relative;
+  top: -3%;
+
+  &.margins {
+    margin-inline: 4px;
+  }
+}
+
+.flexDivider {
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+  background-color: $appIconColorGray;
+
+  &.margins {
+  }
+}

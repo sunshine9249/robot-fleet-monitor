@@ -1,0 +1,24 @@
+@import "color";
+
+// Borders
+
+$uiBorderWidthThin: 1px;
+$uiBorderWidthThick: 2px;
+
+$appBorderColor: $appNeutralLight;
+$appBorderRadius: 8px;
+$appBorderRadiusM: 8px;
+$appBorderRadiusL: 16px;
+$appBorderRadiusSmall: $appBorderRadius / 2;
+$uiBorderThick: $uiBorderWidthThick solid $appBorderColor;
+$uiBorderThin: $uiBorderWidthThin solid $appBorderColor;
+$uiBorderEditable: $uiBorderWidthThick dotted $appBorderColor;
+
+$appInputBorder: 1px solid $appPanelBorder;
+$appInputBorderFocus: 1px solid #00e5ff;
+$appInputBorderInvalid: 1px solid $appColorDanger;
+$appInputBorderDisabled: 1px solid $appPanelBorder;
+
+$appTableBorder: 1px solid $appTableBorderGray;
+
+$appBorder: 1px solid $appPanelBorder;

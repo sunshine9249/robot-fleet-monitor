@@ -1,0 +1,17 @@
+@import "../../styles/base/color";
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
+  padding: 8px 0 20px;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.note {
+  font-size: 13px;
+  color: $appTextColorGray;
+}

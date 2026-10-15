@@ -1,0 +1,176 @@
+@import "../../styles/base/color";
+@import "../../styles/base/border";
+
+/*
+ * 센서 상태 패널 공용 스타일.
+ * 값 카드 · 편차 카드 · 파형 차트가 모두 같은 껍데기(머리말/본문/꼬리말)를 씁니다.
+ */
+
+/* ── 격자 ────────────────────────────────── */
+.grid {
+  display: grid;
+  /* 칸 수는 --sensor-grid-columns 로 받습니다 (SensorPanelGrid 가 채움) */
+  grid-template-columns: repeat(var(--sensor-grid-columns, 4), minmax(0, 1fr));
+  gap: var(--sensor-grid-gap, 16px);
+  align-items: stretch;
+}
+
+/* 칸 수를 고정하지 않고 너비에 맞춰 접는 격자 */
+.gridAuto {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--sensor-grid-min-column, 220px), 100%), 1fr)
+  );
+}
+
+/* 격자 한 줄을 통째로 쓰는 구역 제목 */
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* 제목 바로 아래 패널과 붙여 보이도록 위쪽 여백만 줍니다 */
+  margin-top: 4px;
+}
+
+.sectionTitleText {
+  font-size: 14px;
+  font-weight: 700;
+  color: $appTextBlack;
+}
+
+.sectionTitleTag {
+  padding: 2px 8px;
+  border-radius: 20px;
+  background-color: $appBackgroundColorLightGray;
+  color: $appTextColorGray;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ── 패널 ────────────────────────────────── */
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  padding: 16px;
+  border-radius: $appBorderRadius;
+  background-color: var(--surface-card);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  color: $appTextBlack;
+}
+
+.subtitle {
+  margin-top: 2px;
+  font-size: 11px;
+  color: $appTextColorGray;
+}
+
+/* 오른쪽 위 센서 태그 (DAQ 센서, EOCR 등) */
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: $appTextColorGray;
+  white-space: nowrap;
+}
+
+.tagDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: $appStatusColorNormal;
+}
+
+/* 대표값 줄: 라벨 + 큰 값 + 상태 뱃지 + 통계 문구 */
+.headline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.headlineLabel {
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.headlineValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: $appTextBlack;
+}
+
+.headlineStats {
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+/* 대표값 아래 게이지 바 — 정상 범위 대비 어디쯤인지 */
+.gauge {
+  margin-top: 10px;
+}
+
+.gaugeTrack {
+  height: 4px;
+  border-radius: 2px;
+  background-color: $appBackgroundColorLightGray;
+  overflow: hidden;
+}
+
+.gaugeFill {
+  height: 100%;
+  border-radius: 2px;
+  background-color: $appStatusColorNormal;
+}
+
+.gaugeFillWarning {
+  background-color: $appStatusColorWarning;
+}
+
+.gaugeFillDanger {
+  background-color: $appStatusColorDanger;
+}
+
+.gaugeCaption {
+  margin-top: 8px;
+  font-size: 11px;
+  color: $appTextColorGray;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-top: 12px;
+}
+
+/* 머리말 아래 여백은 본문이 가지므로, 본문이 비면 붙지 않게 */
+.bodyTight {
+  margin-top: 0;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}

@@ -1,0 +1,146 @@
+@import "../../styles/base/color";
+@import "../../styles/base/typography";
+
+.widget {
+  position: absolute;
+  width: 320px;
+  padding: 16px 18px 12px;
+  background: var(--surface-card);
+  border-radius: 16px;
+  border: 1px solid $appPanelBorder;
+  border-top-width: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+  cursor: move;
+  user-select: none;
+  z-index: 20;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: $appColorPrimaryBackground;
+  color: $appColorPrimary;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: $uiFontWeightBold;
+  color: $appTextBlack;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.close {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: $appTextColorGray;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--surface-card-hover);
+    color: $appTextBlack;
+  }
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  row-gap: 7px;
+  margin: 16px 0 0;
+  font-size: 13px;
+
+  dt {
+    color: $appTextColorGray;
+    font-size: 12px;
+  }
+
+  dd {
+    margin: 0;
+    color: $appTextBlack;
+    font-weight: $uiFontWeightMedium;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.error {
+  color: $appColorDanger;
+}
+
+.progress {
+  margin-top: 5px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--surface-elevated);
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    background: $appColorPrimary;
+    transition: width 0.4s ease;
+  }
+}
+
+.empty {
+  margin-top: 12px;
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.event {
+  margin-top: 12px;
+  padding: 7px 10px;
+  border-left: 3px solid;
+  border-radius: 4px;
+  background: var(--surface-subtle);
+  font-size: 12px;
+  color: $appTextColorDarkGray200;
+}
+
+.more {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px 0 2px;
+  border: none;
+  border-top: 1px solid $appPanelBorder;
+  background: none;
+  font-size: 12px;
+  font-weight: $uiFontWeightSemiBold;
+  color: $appColorPrimary;
+  text-align: right;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

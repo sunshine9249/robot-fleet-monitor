@@ -1,0 +1,145 @@
+@import "size";
+@import "color";
+
+// Font sizes -- scale is loosely based on Major Third (1.250)
+$uiTextScale: 2.25, 1.75, 1.25, 1.125, 1, 0.875, 0.75, 0.5;
+
+$uiFontSize: $uiSize; // 5th position in scale
+
+$uiFontSizeXXS: $uiFontSize * nth($uiTextScale, 8); // 10px
+$uiFontSizeXS: $uiFontSize * nth($uiTextScale, 7); // 12px
+$uiFontSizeS: $uiFontSize * nth($uiTextScale, 6); // 14px
+$uiFontSizeM: $uiFontSize * nth($uiTextScale, 4); // 18px
+$uiFontSizeL: $uiFontSize * nth($uiTextScale, 3); // 20px
+$uiFontSizeXL: $uiFontSize * nth($uiTextScale, 2); // 28px
+$uiFontSizeXXL: $uiFontSize * nth($uiTextScale, 1); // 36px
+
+$uiLineHeight: 1.5;
+
+$uiFontWeightLight: 300;
+$uiFontWeightRegular: 400;
+$uiFontWeightMedium: 500;
+$uiFontWeightSemiBold: 600;
+$uiFontWeightBold: 700;
+$uiCodeFontWeightRegular: 400;
+$uiCodeFontWeightBold: 700;
+
+// ============================================
+// Design Guide Typography
+// ============================================
+$appFontFamily: "Noto Sans KR", sans-serif;
+
+// Page Title - 페이지 최상위 타이틀
+$appPageTitleSize: 26px;
+$appPageTitleWeight: 700;
+
+// Screen Title - SubNav 화면 타이틀
+$appScreenTitleSize: 17px;
+$appScreenTitleWeight: 700;
+
+// Panel Header - 정보 헤더, 카드 타이틀
+$appPanelHeaderSize: 15px;
+$appPanelHeaderWeight: 700;
+
+// Panel Title - 패널/카드 소제목
+$appPanelTitleSize: 13px;
+$appPanelTitleWeight: 700;
+
+// Body - GNB 메뉴, 일반 본문
+$appBodySize: 13px;
+$appBodyWeight: 500;
+
+// Label/Badge - 상태 배지, 라벨, 탭
+$appLabelSize: 12px;
+$appLabelWeight: 600;
+
+// Body Small - 데이터 값, 설명 텍스트
+$appBodySmallSize: 12px;
+$appBodySmallWeight: 400;
+
+// Caption - 타임스탬프, 보조 정보
+$appCaptionSize: 11px;
+$appCaptionWeight: 400;
+
+// KPI Value - 대시보드 숫자 강조
+$appKPIValueSize: 20px;
+$appKPIValueWeight: 700;
+
+// Spit out rem and px
+@mixin fontSize($size: $uiFontSize, $sizingMethod: "rem") {
+  @if ($sizingMethod == "rem") {
+    font-size: $size;
+    font-size: fontSizeToRemOrEm($size, "rem");
+  } @else if ($sizingMethod == "em") {
+    font-size: fontSizeToRemOrEm($size, "em");
+  }
+}
+
+// Font sizing extends, using rem mixin
+@mixin uiFontSizeXS {
+  @include fontSize($uiFontSizeXS);
+  line-height: $uiLineHeight;
+}
+
+@mixin uiFontSizeS {
+  @include fontSize($uiFontSizeS);
+  line-height: $uiLineHeight;
+}
+
+@mixin uiFontSize {
+  @include fontSize($uiFontSize);
+  line-height: $uiLineHeight;
+}
+
+@mixin uiFontSizeM {
+  @include fontSize($uiFontSizeM);
+  line-height: $uiLineHeight;
+}
+
+@mixin uiFontSizeL {
+  @include fontSize($uiFontSizeL);
+  line-height: $uiLineHeight;
+}
+
+@mixin uiFontSizeXL {
+  @each $property, $value in map-get($uiTitles, "m") {
+    @if ($property == "font-size") {
+      @include fontSize($value);
+    } @else {
+      #{$property}: $value;
+    }
+  }
+  line-height: 1.25;
+}
+
+@mixin uiFontSizeXXL {
+  @each $property, $value in map-get($uiTitles, "l") {
+    @if ($property == "font-size") {
+      @include fontSize($value);
+    } @else {
+      #{$property}: $value;
+    }
+  }
+  line-height: 1.25;
+}
+
+// Text truncation
+//
+// Prevent text from wrapping onto multiple lines, and truncate with an
+// ellipsis.
+//
+// 1. Ensure that the node has a maximum width after which truncation can
+//    occur.
+
+@mixin uiTextTruncate {
+  // sass-lint:disable-block no-important
+  max-width: 100%; // 1
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+// 참고: 이 아래 계산된 대비색 세트는 코드베이스 어디에서도 참조되지 않는 죽은 코드였고,
+// $uiColor* 스와치가 정리되며 그 값들도 함께 제거되었다(_color.scss 참고).
+$appColorPrimaryText: makeHighContrastColor($appColorPrimary);
+$appColorAccentText: makeHighContrastColor($appColorAccent);

@@ -1,0 +1,93 @@
+{
+  "name": "robot-fleet-monitor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "실내 자율주행 로봇 플릿 관제 대시보드 (React + TypeScript + three.js)",
+  "author": "Annie",
+  "type": "module",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "dependencies": {
+    "@elastic/charts": "^64.1.0",
+    "@elastic/datemath": "^5.0.3",
+    "@elastic/eui": "^93.5.2",
+    "@emotion/cache": "^11.11.0",
+    "@emotion/css": "^11.11.2",
+    "@emotion/react": "^11.11.4",
+    "@iconify-icons/line-md": "^1.2.30",
+    "@iconify-icons/material-symbols": "^1.2.58",
+    "@iconify/react": "^5.2.0",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@tanstack/react-query": "^5.104.2",
+    "buffer": "^6.0.3",
+    "classnames": "^2.5.1",
+    "history": "4.10.1",
+    "jwt-decode": "^3.1.2",
+    "ky": "^1.2.3",
+    "moment": "^2.30.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "6.15.8",
+    "react-router": "5.3.4",
+    "react-router-dom": "5.3.4",
+    "three": "^0.185.1",
+    "use-query-params": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/history": "4.7.11",
+    "@types/node": "^20.12.2",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/three": "^0.185.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "@vitejs/plugin-react": "^5.1.1",
+    "cheerio": "^1.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-import-resolver-typescript": "^3.8.4",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "msw": "^2.15.0",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "sass": "^1.85.1",
+    "typescript": "^5.8.2",
+    "vite": "^7.2.4",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-svgr": "^4.3.0",
+    "vitest": "^3.2.4"
+  },
+  "scripts": {
+    "start": "pnpm dev",
+    "dev": "vite",
+    "build": "pnpm lint && pnpm clean && tsc && vite build",
+    "preview": "vite preview",
+    "clean": "rimraf build",
+    "lint": "eslint --ext js,jsx,ts,tsx src",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prettier": "prettier --write \"src/**/*.{js,ts,tsx,json,css,scss}\"",
+    "prepare": "husky",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css,scss}": "prettier --write"
+  },
+  "packageManager": "pnpm@10.15.1+sha512.34e538c329b5553014ca8e8f4535997f96180a1d0f614339357449935350d924e22f8614682191264ec33d1462ac21561aff97f6bb18065351c162c7e8f6de67",
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

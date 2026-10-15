@@ -1,0 +1,11 @@
+@import "../../../styles/base/scrollbar";
+
+.invalid {
+  :global(.euiFormHelpText) {
+    color: $appColorDanger;
+  }
+}
+
+.area {
+  @include uiScrollBar;
+}

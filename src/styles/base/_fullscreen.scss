@@ -1,0 +1,48 @@
+@import "animation";
+@import "color";
+@import "z_index";
+
+@mixin uiFullScreenGraphics($uiZLevel: $uiZLevel9) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $uiZLevel + 1000;
+  background: inherit;
+  background-color: $appPageBackgroundColor;
+  opacity: 0;
+  overflow: auto;
+  animation: fullScreenGraphics_FadeIn $uiAnimSpeedExtraSlow
+    $uiAnimSlightResistance 0s forwards;
+
+  // &::before {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 1;
+  //   width: 310px;
+  //   height: 477px;
+  // }
+
+  // &::after {
+  //   position: fixed;
+  //   bottom: 0;
+  //   right: 0;
+  //   z-index: 1;
+  //   width: 313px;
+  //   height: 461px;
+  // }
+
+  @keyframes fullScreenGraphics_FadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(200px), scale(0.75);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0), scale(1);
+    }
+  }
+}

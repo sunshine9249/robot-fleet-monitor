@@ -1,0 +1,32 @@
+// https://github.com/elastic/eui/blob/738253d7fda588cc26304dbf54312b280a1e14ee/src/components/nav_drawer/_variables.scss
+@import "animation";
+@import "color";
+@import "shadow";
+@import "size";
+
+$appHeaderHeight: 52px;
+$appGlobalSpacing: 12px;
+$appNavIconSize: 24;
+
+$appMainHeaderHeight: $appHeaderHeight;
+
+@mixin uiBorderBlockEnd() {
+  border-block-end: 1px solid $appPanelBorder;
+}
+
+// Themable colors
+$uiNavDrawerBackgroundColor: $appNeutralLightest;
+
+// Drawer variables
+$uiNavDrawerWidthExpanded: 240px;
+$uiNavDrawerWidthCollapsed: $appHeaderHeight;
+$uiNavDrawerSideShadow: 2px 0 2px -1px rgba($appShadowColor, 0.3);
+
+// Layout variables
+$uiNavDrawerTopPosition: $appHeaderHeight + 1px;
+
+// Animation variables
+$uiNavDrawerExpandingDelay: $uiAnimSpeedNormal;
+$uiNavDrawerContractingDelay: $uiAnimSpeedFast;
+$uiNavDrawerExtendedDelay: $uiAnimSpeedExtraSlow * 2;
+$uiNavDrawerMenuAddedDelay: $uiAnimSpeedExtraFast;

@@ -1,0 +1,107 @@
+@import "../../../styles/base/color";
+@import "../../../styles/base/variables";
+
+$primayFill: $appColorPrimaryButton;
+$dangerFill: $appColorDangerButton;
+$successFill: $appColorSuccessButton;
+$accentFill: $appColorAccentButton;
+$warningFill: $appColorWarningButton;
+
+.button {
+  &.s {
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  &.m {
+    height: 36px;
+  }
+  & > span {
+    gap: 4px;
+  }
+
+  &.enabled.fill {
+    &.backgroundColorprimary {
+      background-color: $primayFill;
+      color: #fff;
+    }
+    &.backgroundColordanger {
+      background-color: $dangerFill;
+      color: #fff;
+    }
+    &.backgroundColorsuccess {
+      background-color: $successFill;
+      color: textColorByBackground($successFill);
+    }
+    &.backgroundColoraccent {
+      background-color: $accentFill;
+      color: textColorByBackground($accentFill);
+    }
+    &.backgroundColorwarning {
+      background-color: $warningFill;
+      color: textColorByBackground($warningFill);
+    }
+  }
+
+  &.enabled.noFill {
+    &.backgroundColorprimary {
+      background-color: $appColorPrimaryBackground;
+      color: $appColorPrimaryDarker;
+      svg {
+        path {
+          fill: $appColorPrimaryDarker;
+        }
+      }
+    }
+    &.backgroundColordanger {
+      background-color: $appColorDangerBackground;
+      color: $appColorDangerDarker;
+      svg {
+        path {
+          fill: $appColorDangerDarker;
+        }
+      }
+    }
+    &.backgroundColorsuccess {
+      background-color: $appColorSuccessBackground;
+      color: $appColorSuccessDarker;
+      svg {
+        path {
+          fill: $appColorSuccessDarker;
+        }
+      }
+    }
+    &.backgroundColoraccent {
+      background-color: $appColorAccentBackground;
+      color: $appColorAccentDarker;
+      svg {
+        path {
+          fill: $appColorAccentDarker;
+        }
+      }
+    }
+    &.backgroundColorwarning {
+      background-color: $appColorWarningBackground;
+      color: $appColorWarningDarker;
+      svg {
+        path {
+          fill: $appColorWarningDarker;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    color: #a9adb8;
+    background-color: var(--surface-elevated);
+    svg {
+      path {
+        fill: #a9adb8;
+      }
+    }
+    // svg {
+    //   path {
+    //     fill: #a9adb8;
+    //   }
+    // }
+  }
+}

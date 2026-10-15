@@ -1,0 +1,44 @@
+@import "color";
+@import "size";
+
+// Colors
+$uiFocusRingColor: rgba($appColorPrimary, 0.3);
+$uiFocusRingAnimStartColor: rgba($appColorPrimary, 0);
+$uiFocusRingAnimStartSize: 6px;
+$uiFocusRingAnimStartSizeLarge: 10px;
+
+// Sizing
+$uiFocusRingSizeLarge: $uiSizeXS;
+$uiFocusRingSize: $uiFocusRingSizeLarge * 0.75;
+
+// Transparency
+$uiFocusTransparency: lightOrDarkTheme(0.1, 0.2);
+$uiFocusTransparencyPercent: lightOrDarkTheme(90%, 80%);
+$uiFocusBackgroundColor: tintOrShade(
+  $appColorPrimary,
+  $uiFocusTransparencyPercent,
+  $uiFocusTransparencyPercent
+);
+
+@mixin uiFocusRing($size: null, $offset: false) {
+  // Safari & Firefox
+  outline: $uiFocusRingSize solid currentColor;
+
+  // Chrome
+  &:focus-visible {
+    outline-style: auto;
+  }
+
+  &:not(:focus-visible) {
+    outline: none;
+  }
+
+  // Adjusting position with offset
+  @if (type-of($offset) == number) {
+    outline-offset: #{$offset}px;
+  } @else if ($offset == "inner") {
+    outline-offset: -$uiFocusRingSize;
+  } @else if ($offset == "outer") {
+    outline-offset: $uiFocusRingSize;
+  }
+}

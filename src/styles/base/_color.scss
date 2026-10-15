@@ -1,0 +1,256 @@
+@import "math_pow";
+
+$appBackgroundColorLightGray: #0d0e14;
+$appColorLightGray: #3a3d4b;
+$appTableBorderGray: rgba(255, 255, 255, 0.08);
+
+$appThemeColor: #7c77f4;
+$appColorRed: #f43f5e; // Critical
+$appColorBlue: #7c77f4; // Brand
+$appColorGreen: #10b981; // Nominal
+$appColorPink: #f43f85;
+$appColorPurple: #8168de;
+$appColorOrange: #f59e0b; // Warning
+$appColorDeepOrange: #f43f5e;
+$appColorGrey: #94a3b8;
+
+// ============================================
+// Design Guide - Neutral Scale
+// ============================================
+$appNeutralEmpty: #181b24;
+$appNeutralLightest: #121319;
+$appNeutralLight: #252a38;
+$appNeutralMedium: #94a3b8;
+$appNeutralDark: #94a3b8;
+$appNeutralDarkest: #e2e8f0;
+$appNeutralFull: #ffffff;
+
+// Dark-mode neutral scale
+$uiColorEmptyShade: $appNeutralEmpty;
+$uiColorLightestShade: $appNeutralLightest;
+$uiColorLightShade: $appNeutralLight;
+$uiColorMediumShade: $appNeutralMedium;
+$uiColorDarkShade: $appNeutralDark;
+$uiColorDarkestShade: $appNeutralDarkest;
+$uiColorFullShade: #0d0e14;
+
+// ============================================
+// Design Guide - Border Radius
+// ============================================
+$appRadiusSM: 4px; // 버튼, 입력창
+$appRadiusMD: 8px; // 입력창, 작은 카드
+$appRadiusLG: 16px; // 위젯 패널, 차트
+
+// ============================================
+// Design Guide - Spacing
+// ============================================
+$appSpaceXS: 4px;
+$appSpaceSM: 8px;
+$appSpaceHLG: 10px;
+$appSpaceMD: 12px;
+$appSpaceBase: 16px;
+$appSpaceLG: 20px;
+
+// ============================================
+// Design Guide - Panel/Card
+// ============================================
+$appPanelBorder: rgba(255, 255, 255, 0.08);
+$appShadowS: 0 2px 8px rgba(0, 0, 0, 0.24);
+$appShadowM: 0 8px 24px rgba(0, 0, 0, 0.32);
+
+$appDefaultText: #c8c4d6; // 일반 본문 텍스트
+
+$appColorDanger: $appColorRed;
+$appColorPrimary: $appColorBlue;
+$appColorSuccess: $appColorGreen;
+$appColorAccent: $appColorPink;
+$appColorWarning: $appColorOrange;
+$appColorWarningText: $appColorOrange;
+
+$appColorDangerBackground: rgba($appColorDanger, 0.15);
+$appColorPrimaryBackground: rgba($appColorPrimary, 0.15);
+$appColorSuccessBackground: rgba($appColorSuccess, 0.12);
+$appColorAccentBackground: rgba($appColorAccent, 0.15);
+$appColorWarningBackground: rgba($appColorWarning, 0.12);
+$appColorSubduedBackground: rgba($appColorGrey, 0.12);
+$appColorPurpleBackground: rgba($appColorPurple, 0.15);
+
+$appColorDangerDarker: $appColorDanger;
+$appColorPrimaryDarker: #6c66e8;
+$appColorSuccessDarker: $appColorSuccess;
+$appColorAccentDarker: $appColorAccent;
+$appColorWarningDarker: $appColorWarning;
+
+$appColorDangerButton: $appColorDanger;
+$appColorPrimaryButton: $appColorPrimary;
+$appColorSuccessButton: $appColorSuccess;
+$appColorAccentButton: $appColorAccent;
+$appColorWarningButton: makeColorAsBackground($appColorWarning);
+
+$appTextColorDisabled: #647084;
+$appTextColorPlaceholder: #81899a;
+
+$appColorBlueGray: #252a38;
+
+// App
+
+// Shared foreground colors for the obsidian palette.
+$appTextColorGray: #94a3b8;
+$appTextColorDarkGray200: #c8c4d6;
+$appTextColorDarkGray: #c8c4d6; // Default Text
+$appTextBlack: #e2e8f0; // Title Text
+
+$appIconColorGray: #94a3b8;
+$appColorLineGray100: #252a38;
+$appBackgroundColorGray: #121319;
+
+// 테마와 무관하게 고정되는 순백/순흑. (구 $uiColorGhost / $uiColorInk,
+// $uiColorEmptyShade / $uiColorFullShade 를 통합)
+$appColorWhite: #fff;
+$appColorBlack: #000;
+
+// ─────────────────────────────────────────────────────────
+// 상태(Status) 컬러 매핑 — 디자인 가이드 섹션 2
+// 로봇·이벤트 상태에 대한 고정 컬러 매핑이다. 모든 화면에서 동일하게 사용하고
+// 임의로 색을 바꾸지 않는다. Primary는 액션·강조 전용이며 상태 표현에는 쓰지 않는다.
+// ─────────────────────────────────────────────────────────
+$appStatusColorNormal: $appColorSuccess; // 정상
+$appStatusColorWarning: $appColorWarning; // 주의
+$appStatusColorDanger: $appColorDanger; // 위험
+$appStatusColorFailure: $appColorAccent; // 고장
+$appStatusColorStop: $appIconColorGray; // 정지 — 비활성 아이콘과 동일 톤
+$appStatusColorCommunicationAbnormal: $appTextColorDarkGray; // 통신 이상
+
+// Mixes a provided color with white.
+@function tint($color, $percent) {
+  @return mix($appColorWhite, $color, $percent);
+}
+
+// Mixes a provided color with black.
+@function shade($color, $percent) {
+  @return mix($appColorBlack, $color, $percent);
+}
+
+// 본문 배경색 (구 $uiPageBackgroundColor)
+$appPageBackgroundColor: $appBackgroundColorLightGray;
+
+// For theming. Checks the text color and tells us whether it's light or dark.
+// Based on that we either tint (add white) or shade (add black).
+@function tintOrShade($color, $tint, $shade) {
+  @if (lightness($appTextColorDarkGray) > 50) {
+    @return shade($color, $shade);
+  } @else {
+    @return tint($color, $tint);
+  }
+}
+
+// The reverse of the above
+@function shadeOrTint($color, $shade, $tint) {
+  @if (lightness($appTextColorDarkGray) < 50) {
+    @return shade($color, $shade);
+  } @else {
+    @return tint($color, $tint);
+  }
+}
+
+// Similar to above, but uses the light or dark color based
+// on whether it's the light or dark theme
+@function lightOrDarkTheme($lightColor, $darkColor) {
+  @if (lightness($appTextColorDarkGray) < 50) {
+    @return $lightColor;
+  } @else {
+    @return $darkColor;
+  }
+}
+
+// Calculates luminance, which is better than brightness for checking colors
+// pow, nth functions come from the _math.scss functions
+@function luminance($color) {
+  // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
+  $rgba: red($color), green($color), blue($color);
+  $rgba2: ();
+
+  @for $i from 1 through 3 {
+    $rgb: nth($rgba, $i);
+    $rgb: $rgb / 255;
+
+    $rgb: if($rgb < 0.03928, $rgb / 12.92, pow(($rgb + 0.055) / 1.055, 2.4));
+
+    $rgba2: append($rgba2, $rgb);
+  }
+
+  @return 0.2126 * nth($rgba2, 1) + 0.7152 * nth($rgba2, 2) + 0.0722 *
+    nth($rgba2, 3);
+}
+
+// Calculate contrast
+@function contrastRatio($background, $foreground) {
+  $backgroundLum: luminance($background) + 0.05;
+  $foregroundLum: luminance($foreground) + 0.05;
+
+  @return max($backgroundLum, $foregroundLum) /
+    min($backgroundLum, $foregroundLum);
+}
+
+// ex: makeContrastColor($lightPink, #FFF) would continually shade the pink until
+//     it had higher than 4.5 contrast on a white background.
+$uiContrastRatioText: 4.5;
+@function makeHighContrastColor(
+  $foreground,
+  $background: $appPageBackgroundColor,
+  $ratio: $uiContrastRatioText
+) {
+  $contrast: contrastRatio($foreground, $background);
+
+  // Determine the lightness factor of the background color first to
+  // determine whether to shade or tint the foreground.
+  $brightness: lightness($background);
+
+  $highContrastTextColor: $foreground;
+
+  @while ($contrast < $ratio) {
+    @if ($brightness > 50) {
+      $highContrastTextColor: shade($highContrastTextColor, 5%);
+    } @else {
+      $highContrastTextColor: tint($highContrastTextColor, 5%);
+    }
+
+    $contrast: contrastRatio($highContrastTextColor, $background);
+
+    @if (lightness($highContrastTextColor) < 5) {
+      @warn 'High enough contrast could not be determined. Most likely your background color does not adjust for light mode.';
+      @return $highContrastTextColor;
+    }
+
+    @if (lightness($highContrastTextColor) > 95) {
+      @warn 'High enough contrast could not be determined. Most likely your background color does not adjust for dark mode.';
+      @return $highContrastTextColor;
+    }
+  }
+
+  @return $highContrastTextColor;
+}
+
+// Disabled content only needs a contrast of at least 2 because there is no interaction available
+$uiContrastRatioDisabled: 2;
+@function makeDisabledContrastColor(
+  $color,
+  $background: $appPageBackgroundColor
+) {
+  @return makeHighContrastColor($color, $background, $uiContrastRatioDisabled);
+}
+
+@function textColorByBackground($backgroundColor) {
+  @debug $backgroundColor;
+  @if (lightness($backgroundColor) < 50) {
+    @return $appColorWhite; // 어두운 배경에는 밝은 색상
+  } @else {
+    @return $appColorBlack; // 밝은 배경에는 어두운 색상
+  }
+}
+
+@function makeColorAsBackground($color) {
+  $desaturatedColor: desaturate($color, 20%);
+
+  @return shade($desaturatedColor, 4%);
+}

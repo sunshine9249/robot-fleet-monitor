@@ -1,0 +1,109 @@
+@import "../../../styles/base/color";
+@import "../../../styles/base/variables";
+
+$primayFill: $appColorPrimaryButton;
+$dangerFill: $appColorDangerButton;
+$successFill: $appColorSuccessButton;
+$accentFill: $appColorAccentButton;
+$warningFill: $appColorWarningButton;
+
+.button {
+  padding-inline: 8px;
+  :global(.eui-textTruncate) {
+    align-items: center;
+    gap: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &.s {
+    height: 32px;
+    block-size: 32px;
+  }
+  &.m {
+    height: 36px;
+    block-size: 36px;
+  }
+
+  //   &.enabled.fill {
+  //     &.backgroundColorprimary {
+  //       background-color: $primayFill;
+  //       color: textColorByBackground($primayFill);
+  //     }
+  //     &.backgroundColordanger {
+  //       background-color: $dangerFill;
+  //       color: #fff;
+  //     }
+  //     &.backgroundColorsuccess {
+  //       background-color: $successFill;
+  //       color: textColorByBackground($successFill);
+  //     }
+  //     &.backgroundColoraccent {
+  //       background-color: $accentFill;
+  //       color: textColorByBackground($accentFill);
+  //     }
+  //     &.backgroundColorwarning {
+  //       background-color: $warningFill;
+  //       color: textColorByBackground($warningFill);
+  //     }
+  //   }
+
+  //   &.enabled.noFill {
+  &.primary {
+    // background-color: $appColorPrimaryBackground;
+    color: $appColorPrimaryDarker;
+    svg {
+      path {
+        fill: $appColorPrimaryDarker;
+      }
+    }
+  }
+  &.danger {
+    // background-color: $appColorDangerBackground;
+    color: $appColorDangerDarker;
+    svg {
+      path {
+        fill: $appColorDangerDarker;
+      }
+    }
+  }
+  &.success {
+    //  background-color: $appColorSuccessBackground;
+    color: $appColorSuccessDarker;
+    svg {
+      path {
+        fill: $appColorSuccessDarker;
+      }
+    }
+  }
+  &.accent {
+    //  background-color: $appColorAccentBackground;
+    color: $appColorAccentDarker;
+    svg {
+      path {
+        fill: $appColorAccentDarker;
+      }
+    }
+  }
+  &.warning {
+    //  background-color: $appColorWarningBackground;
+    color: $appColorWarningDarker;
+    svg {
+      path {
+        fill: $appColorWarningDarker;
+      }
+    }
+  }
+  //   }
+
+  &.disabled {
+    color: #a9adb8;
+    // background-color: #f2f4f7;
+    svg {
+      path {
+        fill: #a9adb8;
+      }
+    }
+  }
+}

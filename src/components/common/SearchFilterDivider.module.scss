@@ -1,0 +1,13 @@
+@import "../../styles/base/breakpoint";
+
+.divider {
+  display: inline-block;
+  width: 1px;
+  height: 25px;
+  background-color: var(--border-subtle);
+  margin: 0 8px;
+
+  @include uiBreakpoint("xs", "s", "m") {
+    display: none;
+  }
+}

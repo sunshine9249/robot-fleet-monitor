@@ -1,0 +1,71 @@
+@import "../../styles/base/border";
+@import "../../styles/base/color";
+@import "../../styles/base/typography";
+@import "../../styles/base/scrollbar";
+@import "../../styles/base/variables";
+
+.nav {
+  background-color: $appNeutralEmpty;
+  padding: 12px;
+  border-right: $appBorder;
+  height: 100%;
+  min-width: 210px;
+  .listItem {
+    border-radius: 4px;
+    &:hover,
+    &:focus,
+    &:focus-within {
+      background-color: $appColorPrimaryBackground;
+      button {
+        text-decoration: none;
+      }
+    }
+    button {
+      font-size: $uiFontSize;
+    }
+    &.active {
+      background-color: $appColorPrimaryBackground;
+      button {
+        color: $appColorPrimaryButton;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  height: calc(100vh - $appHeaderHeight);
+  overflow: hidden;
+  overflow-y: auto;
+  @include uiScrollBar;
+  //   & > :global(.euiPanel) {
+  //   }
+
+  & > :global(.euiEmptyPrompt) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  & > :global(.euiPanel:not(.euiEmptyPrompt)),
+  & > :global(.euiFlexGroup > .euiFlexItem > .euiPanel:not(.euiEmptyPrompt)),
+  &
+    > :global(
+      .euiFlexItem
+        > .euiFlexGroup
+        > .euiFlexItem
+        > .euiPanel:not(.euiEmptyPrompt)
+    ) {
+    border: none;
+  }
+}
+
+.group + .group {
+  margin-top: 20px;
+}
+
+.groupTitle {
+  padding-inline: 8px;
+  color: $appTextColorGray;
+}

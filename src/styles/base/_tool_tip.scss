@@ -1,0 +1,34 @@
+@import "shadow";
+@import "color";
+@import "z_index";
+@import "size";
+
+@mixin uiToolTipStyle($size: null) {
+  @include uiBottomShadow($color: $appColorBlack);
+  border-radius: $appBorderRadius;
+  background-color: $appTextColorDarkGray;
+  color: $appColorWhite;
+  z-index: $uiZLevel9;
+  max-width: 256px;
+  overflow-wrap: break-word;
+
+  @if ($size == "s") {
+    @include uiFontSizeXS;
+    padding: $uiSizeS;
+  } @else {
+    @include uiFontSizeS;
+    padding: $uiSizeM;
+  }
+}
+
+@mixin uiToolTipTitle {
+  font-weight: $uiFontWeightBold;
+  border-bottom: solid $uiBorderWidthThin $uiTooltipBorderColor;
+  padding-bottom: $uiSizeXS;
+  margin-bottom: $uiSizeXS;
+}
+
+@mixin uiToolTipAnimation($side: "top") {
+  animation: #{map-get($uiTooltipAnimations, $side)} $uiAnimSpeedSlow ease-out
+    0s forwards;
+}

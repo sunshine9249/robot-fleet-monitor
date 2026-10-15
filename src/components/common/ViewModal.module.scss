@@ -1,0 +1,122 @@
+@import "../../styles/base/color";
+@import "../../styles/base/scrollbar";
+@import "../../styles/base/breakpoint";
+@import "../../styles/base/border";
+
+.container {
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 30vw;
+  min-height: 30vw;
+
+  transition: height 0.2s ease-out;
+  position: relative;
+  :global(.euiModal__closeIcon) {
+    inset-inline-end: 12px;
+    inset-block-start: 12px;
+    color: $appTextColorGray;
+  }
+  &.fullWidthtrue {
+    min-width: calc(100vw - 48px);
+  }
+  &.fullHeighttrue {
+    min-height: calc(100vh - 28px);
+    @include uiBreakpoint("xs", "s") {
+      min-height: 100vh;
+    }
+  }
+  &.minWidthfalse {
+    min-width: unset;
+  }
+  &.minHeightfalse {
+    min-height: unset;
+  }
+}
+:global(.ViewModal_includeFooter) {
+  padding-bottom: 56px;
+}
+
+// :global {
+//   .ViewModal_includeFooter {
+//     .body {
+//       padding-bottom: 56px;
+//     }
+//   }
+// }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // background-color: $appThemeColor;
+
+  padding-block: 14px;
+  padding-inline: 14px;
+  padding-inline-end: 42px;
+  border-bottom: $appBorder;
+  :global(.euiTitle) {
+    color: $appTextColorDarkGray;
+  }
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+
+  &.flexdirectionrow {
+    flex-direction: row;
+  }
+  &.flexdirectioncolumn {
+    flex-direction: column;
+  }
+  &.flexdirectionrow-reverse {
+    flex-direction: row-reverse;
+  }
+  &.flexdirectioncolumn-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &.paddingblock {
+    padding-block: 0px;
+  }
+  &.paddinginline {
+    padding-inline: 0px;
+  }
+
+  & > :global(.euiForm) {
+    min-width: 100%;
+  }
+  // :global {
+  //   & > .euiForm {
+  //     min-width: 100%;
+  //   }
+  // }
+
+  @include uiScrollBar;
+}
+
+.footer {
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  padding-inline: 16px;
+  padding-block: 10px;
+}
+
+.flowRight {
+  display: flex;
+  justify-content: right;
+  flex: 1;
+  gap: inherit;
+}
+
+:global(.ViewModal_includeFooter) {
+  .body {
+    padding-bottom: 0;
+  }
+}

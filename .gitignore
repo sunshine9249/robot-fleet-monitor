@@ -1,0 +1,28 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# env
+.env.local
+.env.*.local
+
+# misc
+.DS_Store
+.eslintcache
+
+# project files
+.idea
+
+debug.log
+package-lock.json
+
+.vscode/settings.json
+nul
+

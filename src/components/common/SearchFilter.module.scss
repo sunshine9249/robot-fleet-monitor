@@ -1,0 +1,20 @@
+@import "../../styles/base/color";
+
+.input {
+  background-color: $appBackgroundColorLightGray;
+  box-shadow: none;
+  height: 36px;
+  &::placeholder {
+    color: #a1aab9;
+  }
+  &:focus {
+    background-color: $appBackgroundColorLightGray;
+    background-image: unset;
+    background-size: unset;
+    box-shadow: none;
+  }
+  &:invalid {
+    background-image: unset;
+    background-size: unset;
+  }
+}

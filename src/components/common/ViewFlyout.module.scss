@@ -1,0 +1,107 @@
+@import "../../styles/base/border";
+@import "../../styles/base/color";
+@import "../../styles/base/scrollbar";
+
+.headerWrap {
+  padding-inline: 0 !important;
+  padding-block-start: 0 !important;
+}
+
+.flyout {
+  :global(.euiFlyout__closeButton) {
+    inset-inline-end: 16px;
+    inset-block-start: 16px;
+    color: $appTextColorGray;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  // gap: 16px;
+  border-bottom: $appBorder;
+}
+
+.headerMain {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-inline: 24px;
+  padding-inline-end: 56px; // 닫기 버튼 자리
+  padding-block-start: 24px;
+  padding-block-end: 16px;
+  &.hasBottom {
+    border-bottom: $appBorder;
+  }
+}
+
+.headerBottom {
+  padding-inline: 24px;
+  :global(.euiTabs) {
+    box-shadow: none;
+  }
+}
+.headerTitleArea {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.title {
+  color: $appTextColorDarkGray;
+}
+
+.subtitle {
+  font-size: 0.8125rem;
+  color: $appTextColorGray;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.bodyWrap {
+  :global {
+    .euiFlyoutBody__overflowContent {
+      padding: 0;
+      block-size: 100%;
+    }
+    .euiFlyoutBody__overflow {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  block-size: 100%;
+  padding: 20px 24px 24px;
+  @include uiScrollBar;
+}
+
+.footerWrap {
+  background-color: var(--surface-subtle);
+  border-top: $appBorder;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.footerLeft,
+.footerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

@@ -1,0 +1,14 @@
+.avatar {
+  // EuiAvatar 의 emotion 클래스보다 우선하도록 클래스를 겹쳐서 씁니다.
+  &.xs {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    font-size: 8px;
+    line-height: 16px;
+  }
+
+  &.square {
+    border-radius: 12px;
+  }
+}

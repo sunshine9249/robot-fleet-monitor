@@ -1,0 +1,283 @@
+@import "../../../styles/base/color";
+@import "../../../styles/base/scrollbar";
+
+.page {
+  display: flex;
+  min-height: 0;
+  height: 100%;
+  background: none;
+  overflow: hidden;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* ── 대화 ─────────────────────────── */
+.messages {
+  flex: 1;
+  min-height: 0;
+  max-height: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+  overflow-y: auto;
+  @include uiScrollBar;
+}
+
+/* 대화 없을 때 대화창 중앙에 보여줄 안내 */
+.empty {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: $appTextColorGray;
+}
+
+.emptyIcon {
+  color: $appColorLightGray;
+}
+
+.emptyText {
+  font-size: 13px;
+}
+
+.historyLoading {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyError {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: auto;
+  color: $appTextColorGray;
+  font-size: 13px;
+  text-align: center;
+
+  button {
+    padding: 6px 12px;
+    border: 1px solid $appPanelBorder;
+    border-radius: 999px;
+    background: var(--surface-subtle);
+    color: $appTextBlack;
+    cursor: pointer;
+  }
+}
+
+.olderHistoryStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px;
+  color: $appTextColorGray;
+  font-size: 12px;
+
+  button {
+    padding: 4px 10px;
+    border: 1px solid $appPanelBorder;
+    border-radius: 999px;
+    background: var(--surface-subtle);
+    color: $appTextBlack;
+    cursor: pointer;
+  }
+}
+
+.olderHistoryHint {
+  align-self: center;
+  padding: 2px 0;
+  color: $appTextColorGray;
+  font-size: 11px;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 560px;
+  margin-top: 8px;
+}
+
+.suggestion {
+  padding: 7px 14px;
+  border: 1px solid $appPanelBorder;
+  border-radius: 999px;
+  background: var(--surface-subtle);
+  font-size: 13px;
+  color: $appTextBlack;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover {
+    border-color: $appColorPrimary;
+    background: $appColorPrimaryBackground;
+  }
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 78%;
+}
+
+.messageAssistant {
+  align-self: flex-start;
+}
+
+/* 사용자 말풍선은 아바타가 오른쪽에 옵니다 */
+.messageUser {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.messageContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.messageUser .messageContent {
+  align-items: flex-end;
+}
+
+.messageSpeaker {
+  padding: 0 4px;
+  font-size: 11px;
+  color: $appTextColorGray;
+}
+
+.avatarUser {
+  margin-right: 8px;
+}
+
+.bubble {
+  padding: 4px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.bubbleAssistant {
+  background-color: var(--surface-card-hover);
+  color: $appTextBlack;
+}
+
+.bubbleUser {
+  // background-color: $appColorPrimary;
+  color: #fff;
+}
+
+/* 답변을 기다리는 동안 점 세 개가 순서대로 깜빡입니다 */
+.typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.typingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: $appTextColorGray;
+  animation: typingBlink 1.2s infinite ease-in-out;
+
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes typingBlink {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typingDot {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* ── 입력 ─────────────────────────── */
+.composer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0 0;
+  border-top: 1px solid $appPanelBorder;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid $appPanelBorder;
+  border-radius: 20px;
+  background-color: var(--surface-subtle);
+  font-size: 13px;
+  color: $appTextBlack;
+
+  &::placeholder {
+    color: $appTextColorGray;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $appColorPrimary;
+    box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.25);
+  }
+}
+
+.sendButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: $appColorPrimary;
+  color: #fff;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: $appColorLightGray;
+    color: $appTextColorGray;
+    cursor: not-allowed;
+  }
+}

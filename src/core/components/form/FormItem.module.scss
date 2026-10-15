@@ -1,0 +1,39 @@
+@import "../../../styles/base/breakpoint";
+@import "../../../styles/base/shadow";
+@import "../../../styles/base/typography";
+@import "../../../styles/base/color";
+
+.formItem {
+  & input::placeholder {
+    color: $appTextColorPlaceholder;
+  }
+  &.required {
+    :global {
+      label {
+        position: relative;
+      }
+
+      label:not(.euiRadio__label):after {
+        content: "*";
+        display: inline-block;
+        position: absolute;
+        right: -10px;
+        top: 0;
+        font-size: 12px;
+        height: 12px;
+        color: $appColorDanger;
+      }
+    }
+  }
+  &.fullWidth {
+    max-width: none;
+    width: 100%;
+  }
+  &.isInvalid {
+    :global {
+      label {
+        color: $appColorDangerDarker;
+      }
+    }
+  }
+}

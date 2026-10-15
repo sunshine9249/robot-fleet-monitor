@@ -1,0 +1,67 @@
+@import "../../styles/base/typography";
+@import "../../styles/base/color";
+
+$width: 54px;
+$circleSize: 22px;
+$margin: 2px;
+
+.container {
+  flex-direction: row;
+  gap: 12px;
+
+  .switchContainer {
+    display: flex;
+    align-items: center;
+
+    .switch {
+      width: $width;
+      height: 26px;
+      background-color: var(--surface-elevated);
+      border-radius: 26px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      .switchHandle {
+        width: $circleSize;
+        height: $circleSize;
+        background-color: #e2e8f0;
+        border-radius: 100%;
+        position: absolute;
+        top: $margin;
+        left: $margin;
+        transition: left 0.3s ease;
+        z-index: 1;
+        box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.2);
+      }
+      .switchText {
+        font-size: 12px;
+        color: $appTextColorDisabled;
+        position: absolute;
+        right: 6px;
+        height: 100%;
+        align-items: center;
+        display: inline-flex;
+      }
+      &.on {
+        background-color: $appColorPrimary;
+        justify-content: flex-start;
+        .switchHandle {
+          left: #{$width - $circleSize - $margin};
+        }
+        .switchText {
+          color: white;
+          left: 7px;
+        }
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.label {
+  white-space: nowrap;
+}

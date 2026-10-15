@@ -1,0 +1,81 @@
+@import "../../styles/appStyles.module.scss";
+@import "../../styles/base/variables";
+
+.headerRow {
+  padding: 0 40px;
+  height: $appHeaderHeight;
+}
+
+// 좌측/우측 섹션이 남는 공간을 균등하게 나눠 가지면서(grow) 각자의 안쪽
+// 가장자리로 내용을 붙여, 그 사이의 navWrap(고정폭)이 헤더 정중앙에 오도록 한다.
+.leftSection {
+  justify-content: flex-start;
+}
+
+.menuGroup {
+  gap: 32px;
+}
+
+.menuWrap {
+  cursor: pointer;
+  color: $appIconColorGray;
+  gap: 6px;
+  padding: 8px 2px;
+  &.active {
+    color: $appColorPrimary;
+  }
+}
+
+.spacer {
+  flex: 1;
+}
+
+.rightSection {
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.iconWrap {
+  align-items: center;
+  :global(.euiHeaderSectionItemButton__content) {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 28px;
+}
+.logoButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.logoText {
+  font-size: 16px;
+  font-weight: 700;
+  color: $appTextBlack;
+  white-space: nowrap;
+}
+
+/* 상단 메뉴에 없는 화면의 보조 제목. 서비스명과 구분되게 Primary 톤을 씁니다 */
+.headerSubtitle {
+  margin-left: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: $appColorPrimary;
+  white-space: nowrap;
+}
+
+.menuItem {
+  white-space: pre;
+}

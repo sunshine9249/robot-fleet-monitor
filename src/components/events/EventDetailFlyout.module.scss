@@ -1,0 +1,101 @@
+@import "../../styles/base/color";
+@import "../../styles/base/typography";
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.message {
+  padding: 12px 14px;
+  border-left: 4px solid;
+  border-radius: 4px;
+  background: $appNeutralLightest;
+  font-size: 14px;
+  line-height: 1.55;
+  color: $appTextBlack;
+}
+
+.map {
+  height: 200px;
+  padding: 6px;
+  border: 1px solid $appPanelBorder;
+  border-radius: 8px;
+}
+
+.caption {
+  margin-top: 6px;
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.snapshot {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+
+  div {
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: $appNeutralLightest;
+  }
+
+  dt {
+    font-size: 11px;
+    color: $appTextColorGray;
+  }
+
+  dd {
+    margin: 2px 0 0;
+    font-size: 15px;
+    font-weight: $uiFontWeightBold;
+    color: $appTextBlack;
+  }
+}
+
+.timeline {
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid $appNeutralLight;
+
+  li {
+    position: relative;
+    padding: 4px 0;
+    font-size: 13px;
+    color: $appTextBlack;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+      border: 2px solid white;
+    }
+
+    strong {
+      display: inline-block;
+      min-width: 64px;
+      color: $appTextBlack;
+    }
+  }
+
+  .pending {
+    color: $appTextColorPlaceholder;
+
+    strong {
+      color: $appTextColorGray;
+    }
+  }
+}

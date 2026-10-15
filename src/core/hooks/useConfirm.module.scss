@@ -1,0 +1,90 @@
+@import "../../styles/base/color";
+@import "../../styles/base/shadow";
+
+.successModalOverlay,
+.successModalOverlay + div {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+.modal {
+  :global(.euiModal__closeIcon) {
+    inset-inline-end: 6px;
+    inset-block-start: 6px;
+  }
+  &.successModal {
+    :global {
+      .euiModalFooter {
+        display: none;
+      }
+    }
+    .body {
+      padding-bottom: 24px;
+    }
+    @include uiBottomShadowSmall;
+  }
+
+  &.aligncenter {
+    :global {
+      .euiModalHeader {
+        justify-content: space-evenly;
+        .euiTitle {
+          text-align: center;
+        }
+      }
+    }
+    .body {
+      text-align: center;
+    }
+  }
+
+  &.alignright {
+  }
+
+  :global {
+    .euiModalFooter .euiButtonEmpty[data-test-subj="confirmModalCancelButton"] {
+      color: $appColorPrimary;
+      block-size: 36px;
+    }
+    .euiModalFooter .euiButton[data-test-subj="confirmModalConfirmButton"] {
+      block-size: 36px;
+    }
+  }
+
+  &.colorprimary {
+    :global {
+      .euiModalFooter .euiButton[data-test-subj="confirmModalConfirmButton"] {
+        background-color: $appColorPrimary;
+      }
+    }
+  }
+
+  &.colordanger {
+    :global {
+      .euiModalFooter .euiButton[data-test-subj="confirmModalConfirmButton"] {
+        background-color: $appColorDanger;
+      }
+    }
+  }
+
+  &.colorsuccess {
+    :global {
+      .euiModalFooter .euiButton[data-test-subj="confirmModalConfirmButton"] {
+        background-color: $appColorWarning;
+      }
+    }
+  }
+
+  &.colorwarning {
+    :global {
+      .euiModalFooter .euiButton[data-test-subj="confirmModalConfirmButton"] {
+        background-color: $appColorSuccess;
+      }
+    }
+  }
+  &.coloraccent {
+    :global {
+      .euiModalFooter .euiButton[data-test-subj="confirmModalConfirmButton"] {
+        background-color: $appColorAccent;
+      }
+    }
+  }
+}

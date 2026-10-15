@@ -1,0 +1,21 @@
+@import "../../../styles/base/color";
+
+.invalid {
+  :global(.euiFormHelpText) {
+    color: $appColorDanger;
+  }
+}
+
+.passwordWithToggle {
+  :global(.euiFieldPassword) {
+    padding-right: 32px;
+  }
+
+  :global(.euiFormControlLayoutIcons--right) {
+    right: 32px;
+  }
+
+  &.invalid :global(.euiFieldPassword) {
+    padding-right: 72px;
+  }
+}

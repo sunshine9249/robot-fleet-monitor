@@ -1,0 +1,15 @@
+{
+  "short_name": "로봇 관제",
+  "name": "로봇 플릿 관제",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0b5cad",
+  "background_color": "#ffffff"
+}

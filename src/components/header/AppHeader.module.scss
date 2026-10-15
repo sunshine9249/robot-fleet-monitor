@@ -1,0 +1,47 @@
+@import "../../styles/base/border";
+@import "../../styles/base/z_index";
+
+.header {
+  box-shadow: none;
+  height: auto;
+  block-size: unset;
+  padding-inline: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $uiZHeader;
+}
+
+.iconWrap {
+  align-items: center;
+  :global(.euiHeaderSectionItemButton__content) {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+}
+.headerRow {
+  flex-direction: row;
+  align-items: center;
+  padding-block: 4px;
+  padding-inline: 24px;
+}
+
+.pageRow {
+  padding-block: 12px;
+}
+
+.logo:hover {
+}
+
+.logoWrap {
+  height: 24px;
+}
+.logoimg {
+  height: 100%;
+}
+
+.updateWrap {
+  gap: 20px;
+  align-items: center;
+}

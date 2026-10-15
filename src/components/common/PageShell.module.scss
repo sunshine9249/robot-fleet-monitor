@@ -1,0 +1,97 @@
+@import "../../styles/base/color";
+@import "../../styles/base/typography";
+
+.page {
+  padding: 24px 28px 40px;
+  min-height: 100%;
+  background: $appPageBackgroundColor;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: $uiFontWeightBold;
+  color: $appTextBlack;
+}
+
+.description {
+  margin-top: 4px;
+  font-size: 13px;
+  color: $appTextColorGray;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
+  padding: 12px 16px;
+  text-align: left;
+  background: var(--surface-card);
+  border: 1px solid $appPanelBorder;
+  border-radius: 8px;
+}
+
+.clickable {
+  cursor: pointer;
+
+  &:hover {
+    border-color: $appColorPrimary;
+  }
+}
+
+.active {
+  border-color: $appColorPrimary;
+  box-shadow: 0 0 0 2px rgba($appColorPrimary, 0.15);
+}
+
+.statLabel {
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: $uiFontWeightBold;
+  color: $appTextBlack;
+  font-variant-numeric: tabular-nums;
+}
+
+.danger .statValue {
+  color: $appColorDanger;
+}
+
+.warning .statValue {
+  color: $appColorWarningText;
+}
+
+.success .statValue {
+  color: $appColorSuccess;
+}
+
+.panel {
+  padding: 16px 20px 8px;
+  background: var(--surface-card);
+  border: 1px solid $appPanelBorder;
+  border-radius: 8px;
+}

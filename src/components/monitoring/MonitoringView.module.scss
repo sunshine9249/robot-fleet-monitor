@@ -1,0 +1,218 @@
+@import "../../styles/base/color";
+@import "../../styles/base/typography";
+@import "../../styles/base/scrollbar";
+
+.container {
+  display: flex;
+  height: 100%;
+  background: $appPageBackgroundColor;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 24px;
+  background: var(--surface-subtle);
+  border-bottom: 1px solid $appPanelBorder;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: $uiFontWeightBold;
+  color: $appTextBlack;
+}
+
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.callout {
+  margin: 12px 24px 0;
+}
+
+.scroll {
+  flex: 1;
+  padding: 16px 24px 32px;
+  overflow-y: auto;
+  @include uiScrollBar;
+}
+
+.mapBox {
+  flex: 1;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modelPanel {
+  min-height: 380px;
+}
+
+.chatPanel {
+  min-height: 380px;
+}
+
+.chatUnavailable {
+  margin: auto;
+  color: $appTextColorGray;
+  font-size: 12px;
+  text-align: center;
+}
+
+.floorTabs {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 6px;
+  background: var(--surface-card);
+
+  button {
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: $appTextColorGray;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .floorActive {
+    background: var(--surface-elevated);
+    color: $appColorPrimary;
+    box-shadow: $appShadowS;
+  }
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  row-gap: 8px;
+  margin: 4px 0 0;
+  font-size: 13px;
+
+  dt {
+    color: $appTextColorGray;
+    font-size: 12px;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: $uiFontWeightSemiBold;
+    color: $appTextBlack;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.warn {
+  color: $appColorWarningText;
+  font-weight: $uiFontWeightMedium;
+}
+
+.danger {
+  color: $appColorDanger !important;
+}
+
+.viewer {
+  flex: 1;
+  min-height: 300px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 50% 40%, #252a38, #0d0e14);
+}
+
+@media (max-width: 1200px) {
+  .modelPanel,
+  .chatPanel {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 800px) {
+  .modelPanel,
+  .chatPanel {
+    grid-column: span 2 !important;
+    min-height: 300px;
+  }
+}
+
+.viewerInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.link {
+  padding: 0;
+  font-size: 12px;
+  font-weight: $uiFontWeightSemiBold;
+  color: $appColorPrimary;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.events {
+  li + li {
+    margin-top: 6px;
+  }
+
+  button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 12px;
+    text-align: left;
+    background: var(--surface-card-hover);
+    border: none;
+    border-left: 3px solid;
+    border-radius: 4px;
+    cursor: pointer;
+
+    span {
+      color: $appTextColorGray;
+    }
+
+    &:hover {
+      background: var(--surface-elevated);
+    }
+  }
+}
+
+.none {
+  font-size: 12px;
+  color: $appTextColorGray;
+}

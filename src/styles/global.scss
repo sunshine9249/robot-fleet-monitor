@@ -1,0 +1,704 @@
+// @import "./base/tool_tip";
+@import "./base/color";
+// @import "./base/border";
+@import "./base/typography";
+@import "./base/variables";
+@import "./base/scrollbar";
+@import "./base/border";
+@import "./base/breakpoint";
+@import "./base/z_index";
+// @import "./base/state";
+
+@import "../../node_modules/@elastic/eui/src/themes/amsterdam/theme_dark";
+@import "../../node_modules/@elastic/charts/dist/theme";
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../assets/Pretendard-Regular.woff") format("woff");
+}
+
+:root {
+  color-scheme: dark;
+  --surface-base: #0d0e14;
+  --surface-subtle: #121319;
+  --surface-card: #181b24;
+  --surface-card-hover: #1e2230;
+  --surface-elevated: #252a38;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(255, 255, 255, 0.16);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent-brand: #7c77f4;
+  --accent-brand-hover: #6c66e8;
+  --focus-ring: #00e5ff;
+}
+
+html {
+  font-family:
+    "Plus Jakarta Sans", "Pretendard", system-ui, sans-serif !important;
+  background-color: var(--surface-base);
+  color: $appTextColorDarkGray;
+  @include uiScrollBar;
+}
+
+// 스크롤이 생기는 EUI 내부 영역도 앱과 같은 스크롤바를 씁니다
+// (플라이아웃·모달 본문, 선택 목록·콤보박스 목록, 컨텍스트 메뉴)
+[class*="euiFlyoutBody__overflow"]:not(
+  [class*="euiFlyoutBody__overflowContent"]
+),
+.euiModalBody__overflow,
+.euiSelectableList__list,
+.euiContextMenuPanel {
+  @include uiScrollBar;
+}
+
+.euiFieldText,
+.euiFieldPassword,
+.euiButton,
+.euiSelect,
+.euiComboBox,
+button,
+input,
+textarea,
+select {
+  font-family: "Pretendard" !important;
+}
+
+.euiPage {
+  background-color: unset !important;
+}
+.globalLayout_EuiPage {
+  // border-radius: $appBorderRadiusM;
+  overflow: hidden;
+  height: 100%;
+}
+
+.globalLayout_EuiPageBody {
+  overflow-x: clip;
+  overflow-y: auto;
+  @include uiScrollBar;
+}
+
+.euiBody--hasFlyout {
+  .euiFlyout {
+    @include uiBreakpoint("m", "l", "xl") {
+      margin-top: $appGlobalSpacing;
+      margin-bottom: $appGlobalSpacing;
+      margin-right: $appGlobalSpacing;
+      border-radius: $appBorderRadiusM;
+    }
+    @include uiBreakpoint("xs", "s") {
+      border-radius: $appBorderRadiusM 0 0 $appBorderRadiusM;
+    }
+    overflow: hidden;
+    overflow-y: auto;
+    @include uiScrollBar;
+    @include uiBottomShadowMedium;
+    @include uiBorderBlockEnd;
+
+    .euiFlyout__closeButton {
+      inset-inline-end: 12px;
+      inset-block-start: 12px;
+    }
+  }
+}
+
+.euiStat {
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  .euiTitle,
+  .euiText {
+    line-height: unset;
+    margin-block-start: unset;
+    margin-block-end: unset;
+  }
+}
+
+.euiBadge {
+  border-radius: 14px;
+
+  .euiBadge__text {
+    border: none;
+  }
+}
+
+.euiOverlayMask {
+  padding-block-end: 0 !important;
+  background: rgba(13, 14, 20, 0.75);
+  backdrop-filter: blur(16px);
+  z-index: $uiZLevel3 !important;
+}
+
+body,
+body > #root {
+}
+
+ul li,
+ol li {
+  list-style: none;
+}
+.euiPanel {
+  // border-radius: $appBorderRadiusM;
+}
+
+.buttonAnimationGlobal {
+  text-align: unset;
+  transition:
+    transform 250ms ease-in-out 0s,
+    background-color 250ms ease-in-out 0s;
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:focus {
+    animation: button-focus-animation 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  }
+}
+
+@keyframes button-focus-animation {
+  50% {
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+}
+
+.euiFormRow--hasEmptyLabelSpace {
+  min-height: 36px;
+}
+
+.euiHorizontalRule {
+  background-color: var(--border-subtle);
+}
+
+.pageBody_fullPageContainer {
+  margin: -1 * $uiSizeM;
+}
+.euiLink {
+  line-height: normal;
+  width: max-content;
+}
+
+.euiLink:focus {
+  text-decoration-thickness: 1px;
+}
+
+.euiCheckbox {
+  // min-height: 24px;
+  // min-width: 24px;
+
+  // &.euiCheckbox--noLabel {
+  //   min-height: 24px;
+  //   min-width: 24px;
+  // }
+
+  // .euiCheckbox__input {
+  //   width: 24px;
+  //   height: 24px;
+  //   top: 0;
+
+  //   & + .euiCheckbox__square {
+  //     width: 24px;
+  //     height: 24px;
+  //     transform: scale(0.8);
+  //     top: 0;
+  //   }
+
+  //   & ~ .euiCheckbox__label {
+  //     margin-left: 4px;
+  //   }
+  // }
+
+  // .euiCheckbox__input:checked {
+  //   & + .euiCheckbox__square {
+  //     border-color: inherit;
+  //   }
+  // }
+  // .euiCheckbox__input:indeterminate {
+  //   border-color: #939496;
+  //   background-color: #a2a9b9;
+  //   & + .euiCheckbox__square {
+  //     border-color: inherit;
+  //   }
+  // }
+  // .euiCheckbox__input:disabled {
+  //   background-color: unset;
+
+  //   & + .euiCheckbox__square {
+  //     border-color: #939496;
+  //     background-color: #ffffff;
+  //   }
+  // }
+
+  // .euiCheckbox__input:disabled:checked {
+  //   & + .euiCheckbox__square {
+  //     border-color: unset;
+  //     box-shadow: none;
+  //     background-color: unset !important;
+  //     background-image: unset;
+  //     opacity: 0.65;
+  //   }
+  // }
+
+  // .euiCheckbox__input:disabled:indeterminate {
+  //   background-color: unset;
+
+  //   & + .euiCheckbox__square {
+  //     border-color: #939496;
+  //     background-color: unset !important;
+  //     background-image: unset;
+  //     opacity: 0.55;
+  //   }
+  // }
+}
+
+.euiTable {
+  // &.euiTable--responsive {
+  //   @include uiBreakpoint("xs", "s") {
+  //     .euiTableRow {
+  //       box-shadow: 0px 5px 20px #ebedf0;
+  //       border: $appBorder;
+  //       margin-bottom: 12px;
+  //     }
+  //     .euiTableRowCell__mobileHeader {
+  //       padding-top: 0;
+  //       margin-bottom: -14px;
+  //       min-height: 12px;
+  //       font-size: $uiFontSizeXS;
+  //     }
+  //   }
+  // }
+  // .euiTableCellContent {
+  //   padding: unset;
+  //   line-height: 1.1rem;
+  // }
+
+  // // 디자인이 잘못되어서 되돌렸습니다. 특히 빈 공간이 너무 많거나 글꼴과 높이가 너무 큰 경우 디자인을 엄격하게 따르지 않으셔도 됩니다.
+  // thead {
+  //   background-color: #f1f4f7;
+  //   border-top: 1px solid $appTableBorderGray;
+  //   .euiTableCellContent {
+  //     min-height: 32px;
+  //     padding-inline: 8px;
+  //   }
+  //   .euiTableCellContent__text {
+  //     color: $appTextColorDarkGray;
+  //   }
+  // }
+  // tbody {
+  //   .euiTableRowCell,
+  //   .euiTableRowCellCheckbox {
+  //     border-top: 1px solid $appTableBorderGray;
+  //     border-bottom: 1px solid $appTableBorderGray;
+  //   }
+  //   .euiTableCellContent {
+  //     min-height: 40px;
+  //     padding-inline: 8px;
+  //     word-break: keep-all;
+  //   }
+  // }
+
+  // .euiLink {
+  //   line-height: 1.1rem;
+  // }
+  // .euiCheckbox {
+  //   width: 22px;
+  //   height: 22px;
+  //   .euiCheckbox__input {
+  //     width: 22px;
+  //     height: 22px;
+
+  //     & + .euiCheckbox__square {
+  //       width: 22px;
+  //       height: 22px;
+  //       transform: scale(1);
+  //     }
+  //   }
+  // }
+
+  // &.euiTable--compressed {
+  //   tbody {
+  //     .euiTableRowCell,
+  //     .euiTableRowCellCheckbox {
+  //       .euiTableCellContent {
+  //         min-height: 32px;
+  //       }
+  //     }
+  //   }
+
+  //   .euiCheckbox {
+  //     width: 20px;
+  //     height: 20px;
+  //     .euiCheckbox__input {
+  //       width: 20px;
+  //       height: 20px;
+
+  //       & + .euiCheckbox__square {
+  //         width: 20px;
+  //         height: 20px;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+.euiCallOut {
+  border-radius: 6px;
+}
+
+button.euiStepHorizontal:hover {
+  background-color: var(--surface-card-hover);
+  border-radius: $appBorderRadius;
+}
+
+.euiTabs {
+  // gap: 20px;
+  // box-shadow: inset 0 -1px 0 #f1f4f7;
+  // margin-block-end: $appGlobalSpacing;
+
+  // // .euiAccordion {
+  // //   padding-block-end: 6px;
+  // // }
+  // // .euiSelectable > .euiText > .euiTextColor > p > strong {
+  // //   word-break: break-all;
+  // // }
+
+  // .euiTab {
+  //   // padding-inline: 0;
+  //   color: #7c7c7c;
+  //   .euiTab__content {
+  //     font-weight: 500;
+  //   }
+  // }
+  // .euiTab-isSelected {
+  //   color: #000;
+  //   box-shadow: inset 0 -2px 0 #000;
+  //   .euiTab__content {
+  //     font-weight: 700;
+  //   }
+  // }
+}
+.euiEmptyPrompt {
+  .euiEmptyPrompt__icon {
+    margin-block-end: 8px;
+  }
+}
+
+// .euiFlyoutBody__overflowContent{
+//   padding
+// }
+
+.euiTitle {
+  font-weight: 600;
+}
+.euiFilePicker__prompt {
+  border-width: 1px;
+}
+.euiFilePicker--compressed .euiFilePicker__prompt {
+  background-color: var(--surface-subtle);
+}
+
+.euiModal {
+  max-block-size: calc(100vh - 28px);
+  max-inline-size: calc(100vw - 48px);
+  border-radius: $appBorderRadiusM;
+  .euiModal__closeIcon {
+    inset-inline-end: 24px;
+    inset-block-start: 24px;
+    color: #83868d;
+    & > svg {
+      inline-size: 22px;
+      block-size: 22px;
+    }
+  }
+}
+
+.euiCallOut {
+  border-radius: 6px;
+  padding-block: 8px;
+  padding-inline: 12px;
+}
+.euiFlyout {
+  @include euiBreakpoint("xs", "s") {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+}
+
+.euiButtonGroupButton {
+  background-color: var(--surface-card);
+}
+.euiButtonGroup__buttons {
+  background-color: var(--surface-card);
+  border: $appBorder;
+  block-size: unset;
+  & > span {
+    padding-inline: 24px;
+  }
+}
+.euiButtonGroupButton-isSelected {
+  background-color: var(--surface-elevated);
+  color: var(--text-primary);
+}
+
+.euiForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.euiFormControlLayout {
+  height: unset;
+  max-width: unset;
+  width: unset;
+}
+.euiFormControlLayoutCustomIcon {
+  color: $appTextColorPlaceholder;
+}
+.euiComboBox {
+  .euiComboBox__inputWrap {
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+    background: none;
+
+    height: 36px;
+    background-color: var(--surface-subtle);
+    color: $appTextColorDarkGray;
+    border: $appInputBorder;
+    border-radius: $appBorderRadius;
+    transition: all 0.2s;
+
+    .euiComboBox__input {
+      block-size: unset;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  &.euiComboBox-isOpen {
+    .euiComboBox__inputWrap {
+      border: $appInputBorderFocus;
+      background: none;
+    }
+  }
+  &.euiComboBox-isInvalid {
+    .euiComboBox__inputWrap {
+      border: $appInputBorderInvalid;
+      background: none;
+    }
+  }
+  &.euiComboBox-isDisabled {
+    .euiComboBox__inputWrap {
+      background-color: var(--surface-elevated);
+      color: $appTextColorDisabled;
+      background: none;
+    }
+  }
+}
+
+.euiFieldNumber,
+.euiFieldText,
+.euiFieldPassword,
+.euiSelect {
+  line-height: 36px;
+}
+.euiFieldNumber,
+.euiFieldText,
+.euiFieldPassword,
+.euiTextArea,
+.euiSelect {
+  height: 36px;
+  background-color: var(--surface-subtle);
+  box-shadow: none;
+  color: $appTextColorDarkGray;
+  border: $appInputBorder;
+  border-radius: $appBorderRadius;
+  transition: all 0.2s;
+}
+.euiFieldNumber::placeholder,
+.euiFieldText::placeholder,
+.euiFieldPassword::placeholder,
+.euiTextArea::placeholder,
+.euiSelect::placeholder {
+  color: $appTextColorGray;
+}
+.euiFieldNumber:focus,
+.euiFieldText:focus,
+.euiFieldPassword:focus,
+.euiTextArea:focus,
+.euiSelect:focus {
+  border: $appInputBorderFocus;
+  background-image: none;
+  box-shadow: none;
+}
+
+.euiFieldNumber:invalid,
+.euiFieldText:invalid,
+.euiFieldPassword:invalid,
+.euiTextArea:invalid,
+.euiSelect:invalid {
+  border: $appInputBorderInvalid;
+  background-image: none;
+  box-shadow: none;
+}
+
+.euiFieldNumber:disabled,
+.euiFieldText:disabled,
+.euiFieldPassword:disabled,
+.euiTextArea:disabled,
+.euiSelect:disabled {
+  box-shadow: none;
+  background-color: $appBackgroundColorLightGray;
+  border: $appInputBorderDisabled;
+}
+
+.euiFormLabel {
+  color: $appTextColorDarkGray;
+}
+.euiFormLabel.euiFormLabel-isFocused {
+  color: $appTextColorDarkGray;
+}
+.euiFormLabel.euiFormLabel-isInvalid {
+  color: $appColorDanger;
+}
+
+.euiFormControlLayout--group {
+  box-shadow: none;
+  padding: 0;
+}
+
+.euiFormControlLayout--group
+  .euiFormControlLayout__childrenWrapper:first-child
+  .euiSelect,
+.euiFormControlLayout--group
+  .euiFormControlLayout__childrenWrapper:first-child
+  .euiSuperSelectControl,
+.euiFormControlLayout--group
+  .euiFormControlLayout__childrenWrapper:first-child
+  [class*="euiField"] {
+  border-radius: 5px 0 0 5px;
+}
+
+.euiFormControlLayout--group {
+  position: relative;
+  input {
+    border-radius: $appBorderRadius !important;
+  }
+
+  .euiFormControlLayout__append {
+    padding-block: 0 !important;
+    padding-inline: 10px !important;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    background-color: transparent !important;
+  }
+}
+.euiFormControlLayout--group > * {
+  height: 36px;
+}
+.euiButton {
+  height: 36px;
+}
+
+.requiredFormField {
+  label {
+    position: relative;
+  }
+  label:after {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-left: 7px;
+    transform: translateY(-3px);
+    background-color: $appColorDanger;
+    position: absolute;
+    right: -10px;
+    top: 7px;
+  }
+
+  label.euiRadio__label:after,
+  label.euiFormControlLayout__append:after {
+    display: none;
+  }
+
+  .euiFormLegend::after {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-left: 7px;
+    transform: translateY(-3px);
+    background-color: $appColorDanger;
+  }
+}
+
+.body-docModal {
+  .euiModal {
+    max-block-size: 100vh;
+    max-inline-size: 100vw;
+    border-radius: 0;
+  }
+
+  .euiModal__closeIcon {
+    inset-inline-end: 20px;
+    inset-block-start: 12px;
+    color: #83868d !important;
+  }
+
+  .euiModalBody__overflow {
+    padding-block: 0;
+    padding-inline: 0;
+    block-size: 100vh;
+  }
+}
+
+.euiFormControlLayoutClearButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mark.euiMark {
+  background-color: #ffe418;
+  font-weight: 500;
+  color: #000000;
+}
+
+// /** Fix EUI 36.0.0 End */
+@include euiBreakpoint("xs", "s") {
+  .globalLayout_EuiPageBody {
+    // padding: 0px;
+    //   margin-top: 48px;
+    //   padding: 12px;
+    //   overflow-x: clip;
+    //   overflow-y: auto;
+
+    //   @include euiScrollBar;
+
+    //     overflow-y: unset;
+  }
+}
+
+/** Apply dashboard site img drop-shadow or css here */
+.dashboard_site_svg_main_path {
+  filter: drop-shadow(0px 11px 10px #898e9c);
+  // filter: drop-shadow(0px 0px 5px #acb2bc) drop-shadow(0px 11px 10px rgba(0, 0, 20, 0.4));
+}
+
+.dashboard_site_svg_gate_names {
+  text {
+    fill: $appColorBlack;
+    font-size: 16px;
+    font-weight: 700;
+    opacity: 0.6;
+  }
+}

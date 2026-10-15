@@ -1,0 +1,15 @@
+$uiSize: 14px;
+
+$uiSizeXS: $uiSize * 0.25;
+$uiSizeS: $uiSize * 0.5;
+$uiSizeM: $uiSize * 0.75;
+$uiSizeL: $uiSize * 1.5;
+$uiSizeXL: $uiSize * 2;
+$uiSizeXXL: $uiSize * 2.5;
+
+$uiButtonMinWidth: $uiSize * 7;
+
+$uiScrollBar: $uiSizeS;
+// Corner sizes are used as an inset border and therefore a smaller corner size means a larger thumb
+$uiScrollBarCorner: $uiSizeXS;
+$uiScrollBarCornerThin: $uiSizeS * 0.75;

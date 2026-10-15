@@ -1,0 +1,34 @@
+// Z-Index
+
+// Remember that z-index is relative to parent and based on the stacking context.
+// z-indexes only compete against other z-indexes when they exist as children of
+// that shared parent.
+
+// That means a popover with a settings of 2, will still show above a modal
+// with a setting of 100, if it is within that modal and not besides it.
+
+// Generally that means it's a good idea to consider things added to this file
+// as competitive only as siblings.
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+
+$uiZLevel0: 0;
+$uiZLevel1: 1000;
+$uiZLevel2: 2000;
+$uiZLevel3: 3000;
+$uiZLevel4: 4000;
+$uiZLevel5: 5000;
+$uiZLevel6: 6000;
+$uiZLevel7: 7000;
+$uiZLevel8: 8000;
+$uiZLevel9: 9000;
+
+$uiZToastList: $uiZLevel9;
+$uiZModal: $uiZLevel8;
+$uiZMask: $uiZLevel6;
+$uiZNavigation: $uiZLevel6;
+$uiZContentMenu: $uiZLevel2;
+$uiZHeader: $uiZLevel3;
+$uiZFlyout: $uiZHeader;
+$uiZMaskBelowHeader: $uiZHeader;
+$uiZContent: $uiZLevel0;

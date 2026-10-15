@@ -1,0 +1,153 @@
+@import "../../styles/base/color";
+@import "../../styles/base/typography";
+@import "../../styles/base/scrollbar";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  max-height: 100%;
+  background: var(--surface-card);
+  border: 1px solid $appPanelBorder;
+  border-top: none;
+  border-radius: 0 0 0 6px;
+  overflow: hidden;
+}
+
+.collapsed {
+  border-radius: 0 0 0 6px;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-bottom: 1px solid $appPanelBorder;
+}
+
+.collapsedHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: $appPanelTitleSize;
+  font-weight: $uiFontWeightSemiBold;
+  color: $appTextBlack;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: $appCaptionSize;
+  color: $appTextColorDarkGray200;
+}
+
+.collapsedHeader .linkButton {
+  margin-left: auto;
+}
+
+.linkButton,
+.clearFilter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  font-size: $appCaptionSize;
+  color: $appTextColorDarkGray200;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $appTextBlack;
+  }
+}
+
+.clearFilter {
+  color: $appColorPrimary;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  overflow-y: auto;
+  @include uiScrollBar;
+}
+
+.loading,
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  text-align: left;
+  background: var(--surface-card);
+  border: 1px solid $appPanelBorder;
+  border-radius: $appRadiusMD;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: $appColorPrimary;
+  }
+
+  &.selected {
+    border-color: $appColorPrimary;
+    box-shadow: 0 0 0 2px rgba($appColorPrimary, 0.15);
+  }
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.itemName {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: $uiFontWeightSemiBold;
+  color: $appTextBlack;
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: $appTextColorGray;
+}
+
+.eventCount {
+  margin-left: auto;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: $appColorDangerBackground;
+  color: $appColorDanger;
+  font-size: 11px;
+  font-weight: $uiFontWeightSemiBold;
+}
